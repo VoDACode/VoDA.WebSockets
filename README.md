@@ -1,4 +1,4 @@
-[![Stand With Ukraine](/docs/img/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
+[![Stand With Ukraine](https://raw.githubusercontent.com/VoDACode/VoDA.WebSockets/master/docs/img/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 
 [![nuget](https://img.shields.io/static/v1?label=NuGet&message=VoDA.WebSockets&color=blue&logo=nuget)](https://www.nuget.org/packages/VoDA.WebSockets)
 
