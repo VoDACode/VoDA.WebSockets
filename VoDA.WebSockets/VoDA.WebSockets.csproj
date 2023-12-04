@@ -13,9 +13,15 @@
 		<RepositoryUrl>https://github.com/VoDACode/VoDA.WebSockets</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>ws,websockets,websocket</PackageTags>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="..\LICENSE">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	  <None Include="..\README.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
