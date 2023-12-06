@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Net.WebSockets;
 
-namespace VoDA.WebSockets
+namespace VoDA.WebSockets.Services
 {
     internal class ClientManager
     {
@@ -22,12 +22,16 @@ namespace VoDA.WebSockets
 
         public async Task Remove(WebSocketClient client)
         {
+            if (client is null)
+                return;
+
             if (client.Socket.State > WebSocketState.Open)
             {
                 try
                 {
                     await client.CloseAsync();
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                 }
             }

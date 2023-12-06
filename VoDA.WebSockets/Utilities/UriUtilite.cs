@@ -6,7 +6,7 @@ namespace VoDA.WebSockets.Utilities
     {
         public static bool IsPathMatch(string requestPath, string template)
         {
-            var regexPattern = "^" + Regex.Replace(template, "{(.*?)}", "(.*?)") + "$";
+            var regexPattern = "^" + Regex.Replace(template, "{(.*?)}", "(.*?)") + ".*?$";
             return Regex.IsMatch(requestPath, regexPattern);
         }
 
