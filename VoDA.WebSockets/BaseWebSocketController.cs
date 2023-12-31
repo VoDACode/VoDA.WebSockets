@@ -78,7 +78,7 @@ namespace VoDA.WebSockets
             {
                 await Client.SendAsync("Connected");
                 methodParameters.Add(cyclicAttribute.MessageType == WebSocketMessageType.Text ? string.Empty : new byte[0]);
-                while (Client.Socket.State != WebSocketState.Closed)
+                while (Client.Socket.State != WebSocketState.Closed && !HttpContext.RequestAborted.IsCancellationRequested)
                 {
                     methodParameters.RemoveAt(methodParameters.Count - 1);
                     methodParameters.Add(cyclicAttribute.MessageType == WebSocketMessageType.Text ? await Client.ReceiveAsync(cyclicAttribute.BufferSize) : await Client.ReceiveBytesAsync(cyclicAttribute.BufferSize));
@@ -87,7 +87,15 @@ namespace VoDA.WebSockets
             }
             else
             {
-                method.Invoke(this, methodParameters.ToArray());
+                if (method.ReturnType == typeof(Task))
+                {
+                    var task = (Task)method.Invoke(this, methodParameters.ToArray());
+                    await task;
+                }
+                else
+                {
+                    method.Invoke(this, methodParameters.ToArray());
+                }
             }
         }
 

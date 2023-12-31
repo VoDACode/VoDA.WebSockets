@@ -6,7 +6,10 @@ namespace VoDA.WebSockets
     {
         public static IApplicationBuilder UseVoDAWebSocket(this IApplicationBuilder applicationBuilder)
         {
-            applicationBuilder.UseWebSockets();
+            applicationBuilder.UseWebSockets(new WebSocketOptions()
+            {
+                KeepAliveInterval = TimeSpan.FromSeconds(5)
+            });
             applicationBuilder.UseMiddleware<WebSocketMiddleware>();
             return applicationBuilder;
         }
