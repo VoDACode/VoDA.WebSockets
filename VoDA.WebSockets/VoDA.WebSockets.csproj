@@ -15,7 +15,7 @@
 		<PackageTags>ws,websockets,websocket</PackageTags>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-		<Version>1.1.0</Version>
+		<Version>1.2.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
