@@ -21,7 +21,7 @@ namespace VoDA.WebSockets.AttributeHandlers
                 if(authorizationFilterContext.Result != null)
                 {
                     context.Response.StatusCode = (authorizationFilterContext.Result as StatusCodeResult)?.StatusCode ?? 403;
-                    context.Response.WriteAsync(authorizationFilterContext.Result.ToString());
+                    context.Response.WriteAsync(authorizationFilterContext.Result.ToString() ?? "Forbidden");
                     context.Response.Body.Close();
                 }
             }
